@@ -35,7 +35,7 @@ if (isset($_GET['table']) && $_GET['table'] != "")
 
     case $table_pool_template:
       $table = "pool_template";
-      $param = "guid";
+      $param = "entry";
       $table_pool_template_sel = "selected";
       break;
 
@@ -141,7 +141,7 @@ if (isset($_GET['table'])  && $_GET['table'] != null)
 
   printf("<p class=\"text-center\">Table <strong>`%s`</strong> has MAX(%s) = <strong>%d</strong> and MIN(%s)= <strong>%d</strong></p>", $table, $param, $MAX_GUID, $param, $MIN_GUID);
 
-  $query = sprintf("SELECT %s FROM `%s` WHERE guid >= %d ORDER BY guid ASC", $param, $table, $starting_from);
+  $query = sprintf("SELECT %s FROM `%s` WHERE %s >= %d ORDER BY %s ASC", $param, $table, $param, $param, $starting_from);
   $result = $db->query($query);
 
   if (!$result)
