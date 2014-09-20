@@ -59,6 +59,17 @@ if (isset($_GET['table']) && $_GET['table'] != "")
   }
 }
 
+if (isset($_GET['continuos']) && $_GET['continuos'] == "on")
+{
+  $continuos = true;
+  $continuos_checked = "checked";
+}
+else
+{
+  $continuos = false;
+  $continuos_checked = "";
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -102,14 +113,19 @@ if (isset($_GET['table']) && $_GET['table'] != "")
         <div class="form-group">
           <div class="input-group">
             <div class="input-group-addon">Starting from:</div>
-            <input name="starting-from" style="max-width: 140px;" class="form-control" type="text" value="<?= $_GET['starting-from'] ?>" placeholder="1">
+            <input name="starting-from" style="max-width: 120px;" class="form-control" type="text" value="<?= $_GET['starting-from'] ?>" placeholder="1">
           </div>
         </div>
         <div class="form-group">
           <div class="input-group">
             <div class="input-group-addon">GUID amount:</div>
-            <input name="amount" style="max-width: 140px;" class="form-control" type="text" value="<?= $_GET['amount'] ?>" placeholder="10">
+            <input name="amount" style="max-width: 80px;" class="form-control" type="text" value="<?= $_GET['amount'] ?>" placeholder="10">
           </div>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input name="continuos" type="checkbox" <?= $continuos_checked ?>> Continuous
+          </label>
         </div>
         <button type="submit" class="btn btn-success">Search</button>
       </form>
@@ -156,28 +172,58 @@ if (isset($_GET['table'])  && $_GET['table'] != null)
 
   echo "<div><pre>";
 
-  while (($row = mysqli_fetch_row($result)) != null)
+  if ($continuos)
   {
-    if ($count >= $amount)
-      break;
-
-    $current = $row[0];
-
-    if ($current != $last + 1)
+    while (($row = mysqli_fetch_row($result)) != null)
     {
-      for ($i = $last + 1; $i < $current; $i++)
-      {
-        if ($count >= $amount)
-          break;
+      if ($count >= $amount)
+        break;
 
-        printf("%d<br>", $i);
-        $count++;
+      $current = $row[0];
+
+      if ($current - $last - 1 >= $amount)
+      {
+        for ($i = $last + 1; $i < $current; $i++)
+        {
+          if ($count >= $amount)
+            break;
+
+          printf("%d<br>", $i);
+          $count++;
+        }
+
+        printf("<br>");
+        break;
       }
 
-      printf("<br>");
+      $last = $current;
     }
+  }
+  else
+  {
+    while (($row = mysqli_fetch_row($result)) != null)
+    {
+      if ($count >= $amount)
+        break;
 
-    $last = $current;
+      $current = $row[0];
+
+      if ($current != $last + 1)
+      {
+        for ($i = $last + 1; $i < $current; $i++)
+        {
+          if ($count >= $amount)
+            break;
+
+          printf("%d<br>", $i);
+          $count++;
+        }
+
+        printf("<br>");
+      }
+
+      $last = $current;
+    }
   }
 
   echo "</pre></div>";
