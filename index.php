@@ -96,7 +96,7 @@ if (isset($_GET['table']) && $_GET['table'] != "")
             <option value="<?= $table_pool_template ?>"<?= $table_pool_template_sel ?>>`pool_template`</option>
             <option value="<?= $table_game_event ?>"<?= $table_game_event ?>>`game_event_sel`</option>
             <option value="<?= $table_creature_equip_template ?>"<?= $table_creature_equip_template_sel ?>>`creature_equip_template`</option>
-            <option value="<?= $table_trinity_string ?>"<?= $table_trinity_string_sel ?>>`trinity>`trinity_string`</option>
+            <option value="<?= $table_trinity_string ?>"<?= $table_trinity_string_sel ?>>`trinity_string`</option>
           </select>
         </div>
         <div class="form-group">
