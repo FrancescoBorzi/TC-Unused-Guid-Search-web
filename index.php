@@ -47,7 +47,7 @@ if (isset($_GET['table']) && $_GET['table'] != "")
 
     case $table_creature_equip_template:
       $table = "creature_equip_template";
-      $param = "entry";
+      $param = "CreatureID";
       $table_creature_equip_template_sel = "selected";
       break;
 
@@ -85,12 +85,6 @@ else
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
   </head>
   <body>
     <div class="container">
@@ -105,7 +99,7 @@ else
             <option value="<?= $table_gameobject ?>"<?= $table_gameobject_sel ?>>`gameobject`</option>
             <option value="<?= $table_waypoint_scripts ?>"<?= $table_waypoint_scripts_sel ?>>`waypoint_scripts`</option>
             <option value="<?= $table_pool_template ?>"<?= $table_pool_template_sel ?>>`pool_template`</option>
-            <option value="<?= $table_game_event ?>"<?= $table_game_event ?>>`game_event_sel`</option>
+            <option value="<?= $table_game_event ?>"<?= $table_game_event_sel ?>>`game_event`</option>
             <option value="<?= $table_creature_equip_template ?>"<?= $table_creature_equip_template_sel ?>>`creature_equip_template`</option>
             <option value="<?= $table_trinity_string ?>"<?= $table_trinity_string_sel ?>>`trinity_string`</option>
           </select>
@@ -235,9 +229,5 @@ if (isset($_GET['table'])  && $_GET['table'] != null)
       <a href="https://github.com/ShinDarth/TC-Unused-Guid-Search-web"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
     </div>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
   </body>
 </html>
