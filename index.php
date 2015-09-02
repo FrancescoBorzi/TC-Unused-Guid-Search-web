@@ -107,13 +107,13 @@ else
         <div class="form-group">
           <div class="input-group">
             <div class="input-group-addon">Starting from:</div>
-            <input name="starting-from" style="max-width: 120px;" class="form-control" type="text" value="<?= $_GET['starting-from'] ?>" placeholder="1">
+            <input name="starting-from" style="max-width: 120px;" class="form-control" type="text" value="<?php if (isset($_GET['starting-from'])) { echo $_GET['starting-from']; } ?>" placeholder="1">
           </div>
         </div>
         <div class="form-group">
           <div class="input-group">
             <div class="input-group-addon">GUID amount:</div>
-            <input name="amount" style="max-width: 80px;" class="form-control" type="text" value="<?= $_GET['amount'] ?>" placeholder="10">
+            <input name="amount" style="max-width: 80px;" class="form-control" type="text" value="<?php  if (isset($_GET['amount'])) { echo $_GET['amount']; } ?>" placeholder="10">
           </div>
         </div>
         <div class="checkbox">
