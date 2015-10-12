@@ -59,15 +59,16 @@ if (isset($_GET['table']) && $_GET['table'] != "")
   }
 }
 
+// make guid search guid continous enabled by default
+$continuos_checked = "checked";
+
 if (isset($_GET['continuos']) && $_GET['continuos'] == "on")
 {
   $continuos = true;
-  $continuos_checked = "checked";
 }
 else
 {
   $continuos = false;
-  $continuos_checked = "";
 }
 
 ?>
