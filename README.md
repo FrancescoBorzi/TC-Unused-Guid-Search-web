@@ -12,3 +12,8 @@ TC-Unused-Guid-Search-web
 - trinity_string
 
 # ![logo](https://raw.githubusercontent.com/ShinDarth/TC-Unused-Guid-Search-web/master/img/preview.png)
+
+### License
+
+This tool is open-sourced software licensed under the [GNU AGPL license](https://github.com/ShinDarth/TC-Unused-Guid-Search-web/blob/master/LICENSE).
+
